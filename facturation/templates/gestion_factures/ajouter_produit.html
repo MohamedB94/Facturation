@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Ajouter un Produit à la Facture{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>Ajouter un Produit à la Facture #{{ facture.id }}</h1>
+    </div>
+    <div class="card-body">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="{{ form.produit.id_for_label }}" class="form-label">Produit</label>
+                {{ form.produit }}
+                {% if form.produit.errors %}
+                <div class="text-danger">{{ form.produit.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.quantite.id_for_label }}" class="form-label">Quantité</label>
+                {{ form.quantite }}
+                {% if form.quantite.errors %}
+                <div class="text-danger">{{ form.quantite.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+            <a href="{% url 'facture-detail' facture.id %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

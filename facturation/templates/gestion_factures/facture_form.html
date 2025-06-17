@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if form.instance.id %}Modifier{% else %}Créer{% endif %} une Facture
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>{% if form.instance.id %}Modifier{% else %}Créer{% endif %} une Facture</h1>
+    </div>
+    <div class="card-body">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="{{ form.client.id_for_label }}" class="form-label">Client</label>
+                <input type="text" name="client" id="{{ form.client.id_for_label }}" class="form-control" value="{{ form.client.value|default:'' }}">
+                {% if form.client.errors %}
+                <div class="text-danger">{{ form.client.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.note.id_for_label }}" class="form-label">Note</label>
+                <textarea name="note" id="{{ form.note.id_for_label }}" class="form-control" rows="3">{{ form.note.value|default:'' }}</textarea>
+                {% if form.note.errors %}
+                <div class="text-danger">{{ form.note.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="{% url 'facture-list' %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

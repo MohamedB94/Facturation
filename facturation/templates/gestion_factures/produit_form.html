@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% if form.instance.id %}Modifier{% else %}Ajouter{% endif %} un Produit
+{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <h1>{% if form.instance.id %}Modifier{% else %}Ajouter{% endif %} un Produit</h1>
+    </div>
+    <div class="card-body">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="{{ form.nom.id_for_label }}" class="form-label">Nom</label>
+                {{ form.nom }}
+                {% if form.nom.errors %}
+                <div class="text-danger">{{ form.nom.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.prix.id_for_label }}" class="form-label">Prix (€)</label>
+                {{ form.prix }}
+                {% if form.prix.errors %}
+                <div class="text-danger">{{ form.prix.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <div class="mb-3">
+                <label for="{{ form.date_peremption.id_for_label }}" class="form-label">Date de péremption</label>
+                {{ form.date_peremption }}
+                {% if form.date_peremption.errors %}
+                <div class="text-danger">{{ form.date_peremption.errors }}</div>
+                {% endif %}
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <a href="{% url 'produit-list' %}" class="btn btn-secondary">Annuler</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
