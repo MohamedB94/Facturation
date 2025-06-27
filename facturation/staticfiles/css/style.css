@@ -1,0 +1,87 @@
+/* Custom styles for the invoice generator application */
+
+body {
+    background-color: #f8f9fa;
+    padding-bottom: 40px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.table th {
+    background-color: #f1f5f9;
+}
+
+/* Facture detail page */
+.facture-info {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Form styling */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Button hover effects */
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+/* Assurer la visibilité des boutons */
+.btn {
+    color: #fff !important; /* Forcer la couleur du texte en blanc */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Pagination styling */
+.pagination {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Navbar styling */
+.navbar {
+    margin-bottom: 30px;
+}
+
+/* Responsive tables */
+@media (max-width: 768px) {
+    .table-responsive {
+        font-size: 0.9rem;
+    }
+    
+    .btn-sm {
+        padding: 0.2rem 0.4rem;
+        font-size: 0.8rem;
+    }
+}
