@@ -23,7 +23,7 @@
             <tr>
                 <td>{{ produit.nom }}</td>
                 <td>{{ produit.prix }} €</td>
-                <td>{{ produit.date_peremption|date:"d/m/Y" }}</td>
+                <td>{% if produit.date_peremption %}{{ produit.date_peremption|date:"d/m/Y" }}{% else %}Non applicable{% endif %}</td>
                 <td>
                     <div class="btn-group" role="group">
                         <a href="{% url 'produit-detail' produit.id %}" class="btn btn-sm btn-info">Voir</a>

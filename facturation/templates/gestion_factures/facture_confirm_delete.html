@@ -5,14 +5,22 @@
 {% block content %}
 <div class="card">
     <div class="card-header">
-        <h1>Supprimer la Facture</h1>
+        <h1 class="text-danger">
+            <i class="bi bi-exclamation-triangle-fill"></i> Supprimer la Facture
+        </h1>
     </div>
     <div class="card-body">
-        <p>Êtes-vous sûr de vouloir supprimer la facture #{{ object.id }} ?</p>
+        <p class="fw-bold">Êtes-vous sûr de vouloir supprimer la facture #{{ object.id }} ?</p>
         <form method="post">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Confirmer</button>
-            <a href="{% url 'facture-list' %}" class="btn btn-secondary">Annuler</a>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Confirmer
+                </button>
+                <a href="{% url 'facture-list' %}" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Annuler
+                </a>
+            </div>
         </form>
     </div>
 </div>

@@ -43,6 +43,26 @@ body {
     border-color: #bd2130;
 }
 
+/* Assurer la visibilité des boutons */
+.btn {
+    color: #fff !important; /* Forcer la couleur du texte en blanc */
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
 /* Pagination styling */
 .pagination {
     margin-top: 30px;

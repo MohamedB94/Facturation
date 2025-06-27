@@ -4,7 +4,7 @@ from django.utils import timezone
 class Produit(models.Model):
     nom = models.CharField(max_length=100)
     prix = models.DecimalField(max_digits=10, decimal_places=2)
-    date_peremption = models.DateField()
+    date_peremption = models.DateField(null=True, blank=True)  # Permettre des valeurs nulles
     
     def __str__(self):
         return self.nom
